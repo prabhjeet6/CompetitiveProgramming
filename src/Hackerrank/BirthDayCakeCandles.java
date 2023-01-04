@@ -1,12 +1,11 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+package Hackerrank;
 
-public class Solution {
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+ class Solution2 {
 
     // Complete the birthdayCakeCandles function below.
     static int birthdayCakeCandles(int[] ar) {

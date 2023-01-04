@@ -1,12 +1,8 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+package Hackerrank;
 
-public class Solution {
+import java.util.Scanner;
+
+ class Solution10 {
 
     // Complete the plusMinus function below.
     static void plusMinus(int[] arr,int n) {

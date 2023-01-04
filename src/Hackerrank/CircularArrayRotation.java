@@ -1,5 +1,5 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+package Hackerrank;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class Solution {
+ class Solution3 {
 
     // Complete the circularArrayRotation function below.
     static Integer[] circularArrayRotation(Integer[] a, int k, int[] queries) {

@@ -1,10 +1,11 @@
-import java.io.*;
-import java.math.*;
-import java.text.*;
-import java.util.*;
-import java.util.regex.*;
+package Hackerrank;
 
-public class Solution {
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+ class Solution13 {
 
    
     static String timeConversion(String s) 

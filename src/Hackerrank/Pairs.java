@@ -1,12 +1,11 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+package Hackerrank;
 
-public class Pairs {
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+ class Pairs {
       static int counter=0;
     // Complete the pairs function below.
     static int pairs(int k, int[] arr) {
