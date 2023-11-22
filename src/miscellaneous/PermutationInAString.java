@@ -37,6 +37,8 @@ public class PermutationInAString {
 		for (int i = 0; i < T; i++) {
 			String s1 = bufferedReader.readLine();// small String
 			String s2 = bufferedReader.readLine();// bigger String
+			// Find Frequency of characters in s1, compare that with s2's window of size s1,
+			// in case it matches for any of the windows. s2 has a perutation of s1
 			System.out.println(IsS1PermutationSubStringOfS2(s1, s2));
 
 		}
