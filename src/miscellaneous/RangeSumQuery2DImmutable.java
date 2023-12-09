@@ -75,7 +75,7 @@ public class RangeSumQuery2DImmutable {
 		}
 
 		// column-wise PrefixSum
-		//Just think in terms of PrefixSum, and the concepts taught for problem solving., nothing aditional
+		//Just think in terms of PrefixSum, and the concepts taught for problem solving., nothing different
 		for (int i = 1; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				arr[i][j] += arr[i - 1][j];
