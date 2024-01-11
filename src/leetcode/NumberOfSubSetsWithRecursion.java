@@ -34,6 +34,19 @@ public class NumberOfSubSetsWithRecursion {
 		createSubsets(index + 1, res, nums);
 		res.remove(res.size() - 1);
 		createSubsets(index + 1, res, nums);
+
+		/***
+		 * 
+		 * 
+		 * createSubsets(index + 1, res, nums); res.add(nums.get(index));
+		 * createSubsets(index + 1, res, nums);
+		 * 
+		 * since res.add(nums.get(index));and second recursion call will not happen
+		 * until first completes, and res gets shared, this will have unexpected
+		 * recursion tree(try creating,) hence backtracking will be needed
+		 * 
+		 * 
+		 **/
 	}
 
 }
