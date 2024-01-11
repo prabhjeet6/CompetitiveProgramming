@@ -16,24 +16,26 @@ public class LetterCombinations {
 		dialMap.put(8, "tuv");
 		dialMap.put(9, "wxyz");
 		
-		letterCombinations(" ","237",dialMap);
+		letterCombinations(" ","234",dialMap,0);
 	}
-	static void letterCombinations(String letterCombination,String digitString,Map<Integer, String> dialMap) {
+	static void letterCombinations(String letterCombination,String digitString,Map<Integer, String> dialMap,int idx) {
 		
-		
-		if(digitString.trim().equals("")) {
+		if(digitString.length()==idx) {
 			System.out.print(letterCombination);
 			System.out.println();
 			return;
 		}
 		for(int j=0;j<digitString.length();j++) {
 		char activeDigit=digitString.charAt(j);
-		digitString=digitString.replace(activeDigit, ' ').trim();
+		//digitString=digitString.replace(activeDigit, ' ').trim();
 		String stringForDigit=dialMap.get(Integer.parseInt(String.valueOf(activeDigit)));
 		for(int i=0;i<stringForDigit.length();i++) {
 			char c=stringForDigit.charAt(i);
-			//letterCombination+=" "+c;
-			letterCombinations(letterCombination+c,digitString,dialMap);
+			
+			
+			//letterCombination+=" "+c;--> this would have caused,every character to be appended in subsequent recursion calls(i.e. a*,ba*,cab*)
+			
+			letterCombinations(letterCombination+c,digitString,dialMap,idx+1);
 		}
 		}
 		
