@@ -20,7 +20,7 @@ public class FastExponentiation {
         }
 
     }**/
-
+//ref: https://leetcode.com/problems/powx-n/solutions/1841398/java-100-recursive-solution-divide-conquer/
     public   double myPow(double x, int n) {
         return pow(x,n);
     }
