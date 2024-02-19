@@ -35,7 +35,7 @@ public class TroubleSort {
 
         }
     }
-
+//Trouble sort sorts odd indices and even indices individually rather than sorting the complete array
     private static long[] troubleSortEquivalent(long[] values) {
         List<Long> temp1=new ArrayList<>();
         List<Long> temp2=new ArrayList<>();
