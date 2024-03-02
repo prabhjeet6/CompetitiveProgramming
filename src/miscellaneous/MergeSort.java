@@ -10,8 +10,8 @@ public class MergeSort {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(bufferedReader.readLine());
         int arr[] = Arrays.stream(bufferedReader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-        mergesortRecursive(arr, 0, N - 1);
-        //System.out.println(Arrays.toString(arr));
+        //mergesortRecursive(arr, 0, N - 1);
+        mergeSortIterative(arr);
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
@@ -32,16 +32,19 @@ public class MergeSort {
             merge(arr, begin, mid, end);
 
     }
+    /***https://www.geeksforgeeks.org/iterative-merge-sort/*/
     static void mergeSortIterative(int arr[]){
-        int j=1;
-     for(int i=0;i<arr.length;i+=Math.pow(2,j)){
-        if(i+1<=arr.length-1&&arr[i]>arr[i+1]){
-            int temp=arr[i];
-            arr[i]=arr[i+1];
-            arr[i+1]=temp;
+        //Bottom up Approach (Iterative). subArraySize starts with 1, doubles with every iteration
+        for(int subArraySize=1;subArraySize<arr.length;subArraySize*=2){
+            //begin starts from 0 and compares two subsequent subArrays
+            for(int begin=0;begin<arr.length;begin+=2*subArraySize){
+                //find mid and end indices of when comparing two subsequent subArrays.  subArraySize doubles with every iteration
+                int mid=begin+subArraySize-1<arr.length-1?begin+subArraySize-1:arr.length-1;
+                int end=begin+2*subArraySize-1<arr.length-1?begin+2*subArraySize-1:arr.length-1;
+                merge(arr,begin,mid,end);
+            }
+
         }
-        j++;
-     }
     }
 
     public static void merge(int arr[], int begin, int mid, int end) {
