@@ -23,7 +23,7 @@ public class MergeSort {
             return;
         }
             int mid = (end + begin) / 2;
-            //Recursion's Dynamic Programming
+            //Recursion's Divide and conquer
             // sort left half
             mergesortRecursive(arr, begin, mid);
             // sort right half
@@ -32,6 +32,18 @@ public class MergeSort {
             merge(arr, begin, mid, end);
 
     }
+    static void mergeSortIterative(int arr[]){
+        int j=1;
+     for(int i=0;i<arr.length;i+=Math.pow(2,j)){
+        if(i+1<=arr.length-1&&arr[i]>arr[i+1]){
+            int temp=arr[i];
+            arr[i]=arr[i+1];
+            arr[i+1]=temp;
+        }
+        j++;
+     }
+    }
+
     public static void merge(int arr[], int begin, int mid, int end) {
         int arr1[] = new int[mid - begin + 1];
         int arr2[] = new int[end - mid];
