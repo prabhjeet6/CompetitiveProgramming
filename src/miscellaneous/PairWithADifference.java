@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class PairWithASum {
+public class PairWithADifference {
     public static void main(String args[]) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String[] NK = bufferedReader.readLine().split(" ");
@@ -13,30 +13,37 @@ public class PairWithASum {
         long K = Long.parseLong(NK[1]);
         long arr[] = Arrays.stream(bufferedReader.readLine().trim().split(" ")).mapToLong(Long::parseLong).toArray();
         //Using Two Pointers Technique
-        pairWithASum(arr,K);
+        pairWithADifference(arr,K);
     }
+    //6 78
+    //2 3 5 5 20 80
 
-    private static void pairWithASum(long[] arr, long sum) {
-        int l = 0, r = arr.length - 1;
+    // 3 2
+    //1  4 6
+    private static void pairWithADifference(long[] arr, long diff) {
+        int l = 0, r =  1;
         boolean found = false;
         Arrays.sort(arr);
-        while (l < r) {
-            if (arr[l] + arr[r] > sum) {
-                //array is sorted, reducing (arr[l]+arr[r])'s value to match sum
-                r--;
-            } else if (arr[l] + arr[r] < sum) {
-                //array is sorted, increasing (arr[l]+arr[r])'s value to match sum
+        while (r<arr.length) {
+            if (arr[r] - arr[l] > diff) {
+                //diff is smaller, decrease (arr[r] - arr[l])
                 l++;
-            } else if (arr[l] + arr[r] == sum) {
-                System.out.println("YES");
+                if(l==r){
+                    //diff is larger, increase (arr[r] - arr[l])
+                    r++;
+                }
+            } else if (arr[r] - arr[l] < diff) {
+               //diff is larger, increase (arr[r] - arr[l])
+                r++;
+            } else if (arr[r] - arr[l] == diff) {
+                System.out.println("Yes");
                 found = true;
                 break;
             }
         }
         if (!found) {
-            System.out.println("NO");
+            System.out.println("No");
         }
     }
-
 
 }
