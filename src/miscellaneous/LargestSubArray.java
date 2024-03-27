@@ -26,6 +26,12 @@ public class LargestSubArray {
         }
         Map<Integer,Integer> map=new HashMap<>();
         //Adding entry for empty prefix
+        /*
+        Example:
+        arr:   1 2 2 -5
+  PrefixSum: 0  1 3 5  0
+  index:    -1  0 1 2  3
+  * */
         map.put(0,-1);
         for(int i=0;i<arr.length;i++) {
             map.putIfAbsent(prefixSum[i],i);
