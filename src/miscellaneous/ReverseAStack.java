@@ -1,39 +1,34 @@
 package miscellaneous;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class ReverseAStack {
     public static void main(String args[]) throws IOException {
-
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(bufferedReader.readLine());
-        String input[] = bufferedReader.readLine().split(" ");
+        Scanner scanner=new Scanner(System.in);
+        scanner.useDelimiter("[\\s]*");
+        int N=scanner.nextInt();
         Stack<Integer> stack = new Stack<>();
-        for (int i = 0; i < input.length; i++) {
-            stack.push(Integer.parseInt(input[i]));
+        for(int i=0;i<N;i++) {
+            int num=scanner.nextInt();
+            stack.push(num);
         }
         reverseStack(stack);
         //pushBottomIterative(stack,6);
         //pushBottomRecursive(stack,6);
-        while (!stack.isEmpty()) {
-            System.out.print(stack.peek()+" ");
-            stack.pop();
-        }
+        System.out.print(stack);
+        scanner.close();
     }
-
     private static void reverseStack(Stack<Integer> stack) {
         if (stack.isEmpty()) {
             return;
         }
         int top = stack.pop();
         reverseStack(stack);
-        stack.push(top);
-        //pushBottomRecursive(stack, top);
+        //stack.push(top);
+        pushBottomRecursive(stack, top);
     }
-
     private static void pushBottomRecursive(Stack<Integer> stack, int x) {
         if (stack.isEmpty()) {
             stack.push(x);
@@ -43,7 +38,6 @@ public class ReverseAStack {
         pushBottomRecursive(stack, x);
         stack.push(top);
     }
-
     private static void pushBottomIterative(Stack<Integer> stack, int x) {
         Stack<Integer> tempStack = new Stack<>();
         while (!stack.isEmpty()) {
