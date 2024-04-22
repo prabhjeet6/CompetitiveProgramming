@@ -7,7 +7,7 @@ import java.util.Stack;
 public class ReverseAStack {
     public static void main(String args[]) throws IOException {
         Scanner scanner=new Scanner(System.in);
-        scanner.useDelimiter("[\\s]*");
+        //scanner.useDelimiter("[\\s]*");
         int N=scanner.nextInt();
         Stack<Integer> stack = new Stack<>();
         for(int i=0;i<N;i++) {
@@ -17,9 +17,18 @@ public class ReverseAStack {
         reverseStack(stack);
         //pushBottomIterative(stack,6);
         //pushBottomRecursive(stack,6);
-        System.out.print(stack);
+        print(stack);
         scanner.close();
     }
+    public static void print(Stack<Integer> st){
+        if(st.isEmpty()){
+            return;
+        }
+        int x=st.pop();
+        print(st);
+        System.out.print(x+ " ");
+    }
+
     private static void reverseStack(Stack<Integer> stack) {
         if (stack.isEmpty()) {
             return;
