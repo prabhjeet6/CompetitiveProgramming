@@ -1,7 +1,7 @@
 package leetcode;
 
 import java.util.Stack;
-
+/**https://leetcode.com/problems/implement-queue-using-stacks/description/*/
 public class ImplementQueueUsingStacks {
     public static void main() {
 
