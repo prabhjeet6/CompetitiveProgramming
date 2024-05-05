@@ -75,6 +75,7 @@ public class LargestRectangleInHistogram {
 
     public static void largestRectangleInHistogramUsingStacks(int[] heights) {
         int maxArea = 0;
+        //2 1 5 6 2 3
         Stack<Integer> stack = new Stack<Integer>();
         for (int i = 0; i <= heights.length; i++) {
             int h = (i == heights.length ? 0 : heights[i]);
