@@ -9,6 +9,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /**
  * Given a positive number N, print first 'N' natural numbers whose digits belonging to {1,2,3}.
  * Print in sorted form
+ * Level First Traversal
  */
 public class LevelOrderTraversal {
     public static void main(String args[]) throws IOException {
