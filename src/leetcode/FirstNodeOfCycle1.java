@@ -5,6 +5,9 @@ import java.util.Map;
 
 /**
  * https://leetcode.com/problems/linked-list-cycle-ii/description/
+ *
+ *
+ * https://cp-algorithms.com/others/tortoise_and_hare.html
  */
 public class FirstNodeOfCycle1 {
     public static void main(String args[]) {
