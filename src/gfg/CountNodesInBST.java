@@ -23,9 +23,7 @@ public class CountNodesInBST {
             if(null==root){
                 return 0;
             }
-            if (root.data == h && root.data == l){
-                return 1;
-            }
+
             if(root.data >= l && root.data <= h)
                 return 1 + getCount(root.left, l, h)+
                         getCount(root.right, l, h);
