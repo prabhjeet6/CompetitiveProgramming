@@ -47,6 +47,4 @@ class BinaryTreeLevelOrderTraversal {
         }
         return result;
     }
-
-
 }
