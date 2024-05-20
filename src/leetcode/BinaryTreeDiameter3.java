@@ -38,7 +38,7 @@ class BinaryTreeDiameter3 {
         Pair rightSubTree=getDia3(root.right);
         int height=1+Math.max(leftSubTree.height,rightSubTree.height);
         int biggerDia=Math.max(leftSubTree.Diameter,rightSubTree.Diameter);
-        int diameter=Math.max(height,biggerDia);
-        return new Pair(leftSubTree.height+rightSubTree.height,diameter);
+        int diameter=Math.max(leftSubTree.height+rightSubTree.height,biggerDia);
+        return new Pair(height,diameter);
     }
 }
