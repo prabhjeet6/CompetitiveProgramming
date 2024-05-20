@@ -42,7 +42,7 @@ class MissingNumber {
             }
             return ans;
         }
-
+    //SC O(N) TC O(N)
     public static int missingNumberUsingHashSet(int[] nums) {
         Set<Integer>set=new HashSet<>();
 
@@ -57,6 +57,17 @@ class MissingNumber {
             }
         }
         return ans;
+    }
+
+    public static int missingNumberO1Space(int[] nums) {
+        int n=nums.length;
+        int s=(n*(n+1))/2;
+
+        for(int i=0;i<nums.length;i++){
+          s-=nums[i];
+        }
+        return s;
+
     }
 
     boolean binarySearch(int []nums,int i ){
