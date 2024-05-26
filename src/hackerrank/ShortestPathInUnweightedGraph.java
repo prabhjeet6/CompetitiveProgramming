@@ -57,6 +57,7 @@ public class ShortestPathInUnweightedGraph {
                     System.out.print(distance[i] + " ");
                 }
             }
+            System.out.println();
             numberOfQueries--;
         }
 
