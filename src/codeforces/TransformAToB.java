@@ -9,20 +9,26 @@ public class TransformAToB{
         long n=input[0];
         long m=input[1];
         List<Long> sequence=new ArrayList<>();
-        sequence.add(m);//if using isTransformed2
-        //sequence.add(n);////if using isTransformed
-        if(isTransformed2(n,m,sequence)){
+        //sequence.add(m);//if using isTransformed2
+        sequence.add(n); //if using isTransformed
+        if(isTransformed(n,m,sequence)){
           System.out.println("YES");
           System.out.println(sequence.size());
+          /*if using isTransformed2
           for(int i=sequence.size()-1;i>=0;i--) {
               System.out.print(sequence.get(i)+" ");
-          }
+          }*/
+          //if using isTransformed
+          for(int i=0;i<sequence.size();i++) {
+                System.out.print(sequence.get(i)+" ");
+            }
         }else{
             System.out.println("NO");
         }
     }
 
     static boolean isTransformed(long n,long m,List<Long> sequence){
+        System.out.println(sequence);
         if(n==m){
             return true;
         }
@@ -43,16 +49,19 @@ public class TransformAToB{
            //Action
             n=(n*10)+1;
             sequence.add(n);
+            System.out.println(n);
         //Recurse
         boolean tenXPlusOne=isTransformed(n,m,sequence);
         //Backtrack
         if(!tenXPlusOne) {
+            System.out.println(sequence.get(sequence.size()-1));
             sequence.remove(sequence.size()-1);
         }
         return multipliedByTwo||tenXPlusOne;
     }
     static boolean isTransformed2(long n ,long m, List<Long>sequence){
         boolean flag=false;
+        System.out.println(sequence);
         if(n==m){
             return true;
         }
