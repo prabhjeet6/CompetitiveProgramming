@@ -13,16 +13,10 @@ import java.io.*;
         import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-class Result {
+//Gives TLE for some testcases due to Large Input
+/*class Result {
 
-    /*
-     * Complete the 'superDigit' function below.
-     *
-     * The function is expected to return an INTEGER.
-     * The function accepts following parameters:
-     *  1. STRING n
-     *  2. INTEGER k
-     */
+
 
 
     public static int superDigit(String n, int k) {
@@ -46,6 +40,27 @@ class Result {
 
     }
 
+}*/
+//Does not give TLE due to Large Input
+class Result {
+    public static int superDigit(String n, int k) {
+        long a=digitsum(n);
+        long t= (a*k);
+        return Super(t);
+    }
+    public static long digitsum(String n){
+        long sum=0;
+        for(char c : n.toCharArray()){
+            sum=sum+Character.getNumericValue(c);
+        }
+        return sum;
+    }
+    public static int Super(long t){
+        if(t<10){
+            return (int)t;
+        }
+        return Super((t%10)+Super(t/10));
+    }
 }
 
 public class RecursiveDigitSum {
