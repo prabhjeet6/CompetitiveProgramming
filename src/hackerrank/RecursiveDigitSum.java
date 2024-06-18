@@ -2,15 +2,16 @@ package hackerrank;
 
 
 import java.io.*;
-        import java.math.*;
-        import java.security.*;
-        import java.text.*;
-        import java.util.*;
-        import java.util.concurrent.*;
-        import java.util.function.*;
-        import java.util.regex.*;
-        import java.util.stream.*;
-        import static java.util.stream.Collectors.joining;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+
+import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 //Gives TLE for some testcases due to Large Input
@@ -44,22 +45,26 @@ import static java.util.stream.Collectors.toList;
 //Does not give TLE due to Large Input
 class Result {
     public static int superDigit(String n, int k) {
-        long a=digitsum(n);
-        long t= (a*k);
+        long a = digitsum(n);
+        long t = (a * k);
         return Super(t);
     }
-    public static long digitsum(String n){
-        long sum=0;
-        for(char c : n.toCharArray()){
-            sum=sum+Character.getNumericValue(c);
+
+    public static long digitsum(String n) {
+        long sum = 0;
+        for (char c : n.toCharArray()) {
+            sum = sum + Character.getNumericValue(c);
         }
         return sum;
     }
-    public static int Super(long t){
-        if(t<10){
-            return (int)t;
+
+    public static int Super(long t) {
+        if (t < 10) {
+            return (int) t;
         }
-        return Super((t%10)+Super(t/10));
+        //when you have to find sum of digits of a number, its modulus gives 1's digit, and division gives 10's/100's/.. digits, which are further broken
+        // down by recursion
+        return Super((t % 10) + Super(t / 10));
     }
 }
 
