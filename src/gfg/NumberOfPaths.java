@@ -97,7 +97,7 @@ class NumberOfPathsOptimalSolution {
         long res = 1;
         x = x % modVal;
         while (y > 0) {
-            //bitwise & identifies if the right most bit is 1, suggesting number is odd
+            //bitwise & identifies if the right most bit is 1, suggesting power is odd
             if ((y & 1) == 1) {
                 //after multiplying the number once, power decreases by 1 and  becomes even(line 105 and 106)
                 res = (res * x) % modVal;

@@ -9,7 +9,7 @@ public class FastExponentiation {
     static long power(long x, long y) {
         //iterative Fast Exponentiation
         long res = 1;
-        //bitwise & identifies if the right most bit is 1, suggesting number is odd
+        //bitwise & identifies if the right most bit is 1, suggesting power is odd
         while (y > 0) {
             //after multiplying the number once, power decreases by 1 and  becomes even(line 16 and 17)
             if ((y & 1) == 1) res = (res * x) ;
