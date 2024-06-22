@@ -29,9 +29,11 @@ public class NumberOfSubSetsWithRecursion {
 			listOfLists.add(new ArrayList<Integer>(res));
 			return;
 		}
-
+        //Action
 		res.add(nums.get(index));
+		//Recurse
 		createSubsets(index + 1, res, nums);
+		//Backtrack
 		res.remove(res.size() - 1);
 		createSubsets(index + 1, res, nums);
 
