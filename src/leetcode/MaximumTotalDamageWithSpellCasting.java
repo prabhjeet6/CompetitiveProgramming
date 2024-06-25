@@ -4,6 +4,7 @@ package leetcode;
 import java.math.BigInteger;
 import java.util.*;
 /***https://www.youtube.com/watch?v=W3MEqsgKjao&t=1544s */
+
 /***<a href="https://leetcode.com/problems/maximum-total-damage-with-spell-casting/">...</a>*/
 class MaximumTotalDamageWithSpellCasting {
     class Solution {
@@ -54,7 +55,8 @@ class MaximumTotalDamageWithSpellCasting {
             return maxDamageDP[totalUniqueDamages - 1];
         }
     }
-    //Passes All TestCases,leetcode errors out saying time taken is longer than expected
+    //Passes All TestCases,leetcode errors out saying time taken is longer than expected because,
+    // instead of the original array, Map keys need to be sorted
    /* public long maximumTotalDamage(int[] power) {
         Arrays.sort(power);
         Map<Integer,Integer>freq=new HashMap<Integer,Integer>();
