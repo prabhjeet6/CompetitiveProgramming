@@ -25,6 +25,7 @@ public class SubSetsOfASetUsingBitMasking {
 			int totalSubSets = (int) Math.pow(2, nums.length) - 1;
 			for (int i = 0; i <= totalSubSets; i++) {
 				List<Integer> bitMask = decimalToBinary(i, nums.length);
+				//System.out.println(bitMask);
 				 res.add(createSubSets(nums,bitMask));
 			}
 		}
@@ -34,8 +35,11 @@ public class SubSetsOfASetUsingBitMasking {
 		List<Integer> subSet=new ArrayList<Integer>();
 		if(bitMask.isEmpty())
 			return subSet;
+		System.out.println(bitMask);
 		 for(int i=0;i<nums.length;i++) {
+
 			if(bitMask.get(i)==1) {
+				System.out.println(nums[i]);
 				subSet.add(nums[i]);
 			}
 		}
