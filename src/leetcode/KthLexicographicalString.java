@@ -1,5 +1,5 @@
 package leetcode;
-
+/**https://leetcode.com/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n/*/
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +18,7 @@ class KthLexicographicalString {
     public String getHappyString(int n, int k) {
         backtrack(n,' ');
         //Even sorting is not needed as backtrack is generating strings in lexicographical order
+        //because it is looped in alphabetical order in every iteration
         //Collections.sort(list);
         if(list.size()<k) return "";
         else return list.get(k-1);
