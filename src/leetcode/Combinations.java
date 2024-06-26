@@ -5,34 +5,32 @@ import java.util.List;
 
 class Combinations {
 
+    List<Integer> temp;
     List<List<Integer>> res;
-    ArrayList<Integer> temp;
 
-    void solve(int n,int k,int i){
-
-        if(temp.size()==k){
-            List<Integer> al=new ArrayList<>();
-            for(int x:temp){
-                al.add(x);
-            }
-            res.add(al);
-            return;
-        }
-
-        for(int j=i;j<=n;j++){
-            temp.add(j);
-            solve(n,k,j+1);
-            temp.remove(temp.size()-1);
-        }
-
+    public static void main(String as[]){
+        System.out.println(new Combinations().combine(4,2));
     }
 
-    public List<List<Integer>> combine(int n, int k) {
+    void findCombinations(int n,int k,int i){
+        if(temp.size()==k){
+            List<Integer> subList = new ArrayList<>(temp);
+            res.add(subList);
+            return;
+        }
+        for(int j=i;j<=n;j++){
+            temp.add(j);
+            findCombinations(n,k,j+1);
+            temp.remove(temp.size()-1);
+        }
+    }
 
-        res=new ArrayList<>();
+
+    public List<List<Integer>> combine(int n, int k) {
         temp=new ArrayList<>();
-        solve(n,k,1);
-        return res;
+        res=new ArrayList<>();
+         findCombinations(n,k,1);
+         return res;
 
     }
 
