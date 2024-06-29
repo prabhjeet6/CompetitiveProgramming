@@ -33,7 +33,9 @@ class KthLexicographicalString {
                 if(ch!=prev){
                     sb.append(ch);
                     backtrack(n,ch);
+                    System.out.println(sb +" "+ ch);
                     sb.delete(sb.length()-1,sb.length());
+                    System.out.println(sb);
                 }
 
             }
