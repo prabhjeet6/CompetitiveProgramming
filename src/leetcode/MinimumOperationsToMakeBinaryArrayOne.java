@@ -2,6 +2,9 @@ package leetcode;
 
 
 class MinimumOperationsToMakeBinaryArrayOne {
+    //Hint1:If nums[0] is 0, then the only way to change it to 1 is by doing an operation on the first 3
+    // elements of the array.
+    //After Changing nums[0] to 1, use the same logic on the remaining array.
     public int minOperations(int[] nums) {
         int i=0,count=0;
         while(i<nums.length){
