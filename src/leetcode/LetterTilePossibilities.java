@@ -24,13 +24,19 @@ Algorithm:
 6. Hence return the size of the set -1. That `-1` corresponds to the `null` string.
 ----------------------------------------------------------------------------------------
 */
+    public static void main(String as[]){
+        System.out.println(new LetterTilePossibilities().numTilePossibilities("aab"));
+    }
+
     public int numTilePossibilities(String tiles) {
         Set<String> set = new HashSet<>();
         boolean[] vis = new boolean[tiles.length()];
         permute(tiles, "", set, vis);
+
         return set.size()-1;
     }
     public void permute(String tiles, String curr, Set<String> set, boolean[] vis){
+
         set.add(curr);
         for(int i=0; i<tiles.length(); i++){
             if(!vis[i]){
