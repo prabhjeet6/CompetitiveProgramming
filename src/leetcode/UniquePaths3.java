@@ -3,7 +3,7 @@ package leetcode;
 
 //there may exist a path that reaches from start to end, and all the nodes in the path were visited only once, but,
 // the requirement here is to cover all the safe nodes once, hence, even if all  the path nodes were visited only
-// once, but, even one node left uncovered will make the path incorrect.
+// once, but, even one safe node of the matrix is left uncovered, it will make the path incorrect.
 
 class UniquePaths3 {
     public int uniquePathsIII(int[][] grid) {
