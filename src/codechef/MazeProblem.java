@@ -1,87 +1,119 @@
 
 package codechef;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 
 class MazeProblem {
-    static String ans = "";
+    static class FastScanner {
+        BufferedReader br;
+        StringTokenizer st;
 
-    public static void main(String[] args) throws java.lang.Exception {
-
-        Scanner s = new Scanner(System.in);
-        try {
-            int t = 0;
-            if (s.hasNext())
-                t = s.nextInt();
-
-            while (t > 0) {
-                t--;
-                int n = 0;
-                if (s.hasNext())
-                    n = s.nextInt();
-
-                int matrix[][] = new int[n][n];
-                String input[] = new String[n * n];
-                String in = "";
-                s.useDelimiter("\\n");
-                if (s.hasNext()) {
-                    in = s.next();
-                }
-                input = in.split(" ");
-                int counter = 0;
-                for (int i = 0; i < n; i++) {
-
-                    for (int j = 0; j < n; j++) {
-                        matrix[i][j] = Integer.parseInt(input[counter]);
-                        counter++;
-                    }
-                }
-                counter = 0;
-                boolean isVisited[][] = new boolean[n][n];
-                paths("", matrix, n, 0, 0, isVisited);
-                String[] tokens=ans.trim().split(" ");
-                Arrays.sort(tokens);
-                for(String token:tokens){
-                    System.out.print(token+" ");
-                }
-                //System.out.println(ans.trim());
-                ans = "";
-
-            }
-        } catch (Exception e) {
-
+        FastScanner() {
+            br = new BufferedReader(new InputStreamReader(System.in));
         }
-        s.close();
 
+        String next() {
+            while (st == null || !st.hasMoreTokens()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+
+        void close() {
+            try {
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    static void paths(String res, int[][] matrix, int n, int i, int j, boolean isVisited[][]) {
-        if (i < 0 || j < 0 || i > n - 1 || j > n - 1 || isVisited[i][j]) {
-            return;
-        }
-        if (matrix[i][j] == 0) {
-            return;
-        }
+    public static void main(String[] args) throws java.lang.Exception {
+        FastScanner s = new FastScanner();
+        int t = s.nextInt();
+        while (t > 0) {
+            t--;
+            int n = s.nextInt();
+            int[][] matrix = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    matrix[i][j] = s.nextInt();
+                }
+            }
+            boolean[][] isVisited = new boolean[n][n];
+            List<String> res=new ArrayList<>();
+            paths( matrix, n, 0, 0, isVisited,new ArrayList<>(),res);
 
+            Collections.sort(res);
+            for(String path: res){
+                System.out.print(path+ " ");
+            }
+            System.out.println();
+        }
+        s.close();
+    }
+
+    static void paths( int[][] matrix, int n, int i, int j, boolean[][] isVisited, List<Character> temp, List<String> res ) {
+        if (i < 0 || j < 0 || i > n - 1 || j > n - 1 || isVisited[i][j] || matrix[i][j] == 0) {
+            return;
+        }
         if (i == j && i == n - 1) {
-            ans += " " + res;
-
+            StringBuffer sb=new StringBuffer();
+            for(Character c:temp){
+                sb.append(c);
+            }
+            res.add(sb.toString());
             return;
         }
 
         isVisited[i][j] = true;
 
-        paths(res + "R", matrix, n, i, j + 1, isVisited);
-        paths(res + "D", matrix, n, i + 1, j, isVisited);
-        paths(res + "U", matrix, n, i - 1, j, isVisited);
-        paths(res + "L", matrix, n, i, j - 1, isVisited);
+        temp.add('R');
+        paths( matrix, n, i, j + 1, isVisited,temp,res);
+        temp.remove(temp.size()-1);
 
-        res = !res.isEmpty() ? res.substring(0, res.length() - 1) : res;
+        temp.add('D');
+        paths( matrix, n, i + 1, j, isVisited,temp,res);
+        temp.remove(temp.size()-1);
+
+        temp.add('U');
+        paths( matrix, n, i - 1, j, isVisited,temp,res);
+        temp.remove(temp.size()-1);
+
+        temp.add('L');
+        paths( matrix, n, i, j - 1, isVisited,temp,res);
+        temp.remove(temp.size()-1);
+
 
         isVisited[i][j] = false;
-
-
     }
-
 }
