@@ -17,7 +17,7 @@ class WordBoggle
 
         if(row<0 || row>=n || col<0 || col>=m || visited[row][col] || board[row][col]!=word.charAt(index))
             return false;
-
+        //mark visited[row][col] as true at the start of dfs call
         visited[row][col]=true;
 
         int[] delRow={-1,-1,0,1,1,1,0,-1};
@@ -25,11 +25,12 @@ class WordBoggle
 
         for(int i=0;i<8;i++){
             if(dfs(row+delRow[i],col+delCol[i],index+1,board,visited,word)){
+                //mark visited[row][col] as false after every recursive call
                 visited[row][col]=false;
                 return true;
             }
         }
-
+        //mark visited[row][col] as false at the end of dfs call
         visited[row][col]=false;
         return false;
     }
