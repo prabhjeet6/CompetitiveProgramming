@@ -28,7 +28,7 @@ class HouseRobber2 {
         if(dp[idx]!=-1){
             return dp[idx];
         }
-        return dp[idx]=Math.max(nums[idx] + leavemealone(nums,idx+2,n,dp), 0 + leavemealone(nums,idx+1,n,dp));
+        return dp[idx]=Math.max(nums[idx] + leavemealone(nums,idx+2,n,dp),  leavemealone(nums,idx+1,n,dp));
     }
 }
 //BottomTop|Tabulation
