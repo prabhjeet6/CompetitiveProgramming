@@ -14,6 +14,8 @@ Input: “121”
 
 Output: 3
 */
+
+//https://leetcode.com/problems/decode-ways/description/
 package leetcode;
 
 import java.util.HashMap;
@@ -22,7 +24,7 @@ import java.util.Map;
 class CountOfDecodings1Recursive {
 
     public static void main(String[] as) {
-        String encodedMessage = "121";
+        String encodedMessage = "226";
         System.out.println(numDecodingsRecursive(encodedMessage));
     }
 
