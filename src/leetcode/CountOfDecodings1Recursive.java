@@ -24,7 +24,8 @@ import java.util.Map;
 class CountOfDecodings1Recursive {
 
     public static void main(String[] as) {
-        String encodedMessage = "06";
+
+        String encodedMessage = "226";
         System.out.println(numDecodingsRecursive(encodedMessage));
     }
 
