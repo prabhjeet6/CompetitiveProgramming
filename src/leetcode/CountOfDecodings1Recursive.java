@@ -24,15 +24,15 @@ import java.util.Map;
 class CountOfDecodings1Recursive {
 
     public static void main(String[] as) {
-        String encodedMessage = "226";
+        String encodedMessage = "06";
         System.out.println(numDecodingsRecursive(encodedMessage));
     }
 
     //Recursive solution
     public static int numDecodingsRecursive(String s) {
-        if(null==s || s.isEmpty()){
+        /*if(null==s || s.isEmpty()){
             return 0;
-        }
+        }*/
         return countDecodings(s,  populateMap(),0,0);
     }
     static Map<String,Character> populateMap(){
