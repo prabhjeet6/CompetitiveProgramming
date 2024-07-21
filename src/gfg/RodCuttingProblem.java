@@ -16,6 +16,7 @@ public class RodCuttingProblem {
     // n denotes size of rod
 
     //Recursive-BruteForce
+    //TC: O(N^N) SC:O(1)
     public static int cutRodRecursive(int[] price, int n) {
         if (n <= 0) {
             return 0;
@@ -32,6 +33,7 @@ public class RodCuttingProblem {
 
 
     //Top-Bottom DP
+
     public static int cutRodTopBottomDP(int[] price, int n) {
         int[] ans = new int[n + 1];
         Arrays.fill(ans, -1);
@@ -54,6 +56,7 @@ public class RodCuttingProblem {
     }
 
     //Bottom-Top DP
+    //TC:O(N^2) SC:O(N)
     public static int cutRodBottomTopDP(int[] price, int n) {
         int[] ans = new int[n + 1];
         for(int i=1;i<=n;i++){
