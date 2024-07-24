@@ -21,10 +21,15 @@ class DeleteNodesFromListPresentInArray {
         }
         ListNode temp = head;
         while (null != temp && null != temp.next) {
+            //Using set gives O(1) search and total TC of O(n) compared with O(n^2) if we use a parent loop for nums array
             if (numSet.contains(head.val)) {
                 temp = temp.next;
+                //if head is to be removed, after temp traverses to next node, mark head as temp, else, it will break head's linkage to temp
                 head=temp;
-            } else if (numSet.contains(temp.next.val)) {
+            }
+            //Instead of looking for the element to remove, look for the element whose next element has to be removed,that way,
+            // additional parent node is not needed, you can access next node(node to be deleted), and next's next node(to be linked with current node)
+            else if (numSet.contains(temp.next.val)) {
                 temp.next = temp.next.next;
             } else {
                 temp = temp.next;
