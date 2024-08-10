@@ -49,6 +49,9 @@ public class SpecialInversions {
     private static int merge(int l, int m, int r, int[] nums) {
         int count=0;
         int j=m+1;
+        //Nested Loop TC:O(2N)
+        //since recursion breaks down the array from to Top to bottom, to single element arrays, this nested loop is at most O(2N),
+        // second loop does not run for N times
         for(int i=l;i<=m;i++){
             while(j<=r&&nums[i]>(2*(long)nums[j])){
                 j++;
