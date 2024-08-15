@@ -39,6 +39,8 @@ class Solution
         long[] ngeArr = new long[arr.length];
         Stack<Integer> stack = new Stack<Integer>();
 
+        //Input: arr[] = [1 3 2 4], n = 4
+        //Output: 3 4 4 -1
         for(int i=0;i<n;i++){
                 //stack is not empty and arr[i] is greater than arr[stack top]
             while(!stack.isEmpty() && arr[i]>arr[stack.peek()])
