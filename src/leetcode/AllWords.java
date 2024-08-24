@@ -67,14 +67,14 @@ class AllWords {
                     int count = tempMap.get(temp);
                     if (count == 1) tempMap.remove(temp);
                     else tempMap.put(temp, count - 1);
-                    if (tempMap.isEmpty()) {
-                        //if at the end of nested loop, tempMap is empty, then,
-                        // it is a permutation match
-                        ans.add(i);
-                        break;
-                    }
+
                 } else break;
 
+            }
+            if (tempMap.isEmpty()) {
+                //if at the end of nested loop, tempMap is empty, then,
+                // it is a permutation match
+                ans.add(i);
             }
 
             tempMap.clear();
