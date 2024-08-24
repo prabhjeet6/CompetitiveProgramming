@@ -6,7 +6,7 @@ import java.util.Stack;
 
 public class NeedAllOnes {
 
-
+//https://www.hackerrank.com/contests/gl-bajaj-self-evaluation-contest/challenges/need-all-ones/problem
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
