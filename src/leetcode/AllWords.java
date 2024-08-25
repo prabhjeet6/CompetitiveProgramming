@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+//https://leetcode.com/problems/substring-with-concatenation-of-all-words/
 class AllWords {
     public static void main(String[] as) {
         System.out.println(findSubstring("barfoothefoobarman", new String[]{"foo", "bar"}));
