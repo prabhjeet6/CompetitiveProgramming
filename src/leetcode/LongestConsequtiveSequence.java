@@ -1,10 +1,10 @@
 package leetcode;
 //https://leetcode.com/problems/longest-consecutive-sequence/
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 //refer notes in case of doubt
+//TC:O(N) SC: O(N)
 class LongestConsequtiveSequence {
     static Map<Integer, Integer> streak = new HashMap<>();
     static int ans = 0;
