@@ -9,7 +9,7 @@ public class MergeSort {
     public static void main(String args[]) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(bufferedReader.readLine());
-        int arr[] = Arrays.stream(bufferedReader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        int[] arr = Arrays.stream(bufferedReader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         //mergesortRecursive(arr, 0, N - 1);
         mergeSortIterative(arr);
         for(int i=0;i<arr.length;i++){
@@ -47,7 +47,7 @@ public class MergeSort {
         }
     }
 
-    public static void merge(int arr[], int begin, int mid, int end) {
+    public static void merge(int[] arr, int begin, int mid, int end) {
         int arr1[] = new int[mid - begin + 1];
         int arr2[] = new int[end - mid];
 

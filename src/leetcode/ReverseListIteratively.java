@@ -1,5 +1,5 @@
 package leetcode;
-
+//https://www.youtube.com/watch?v=D2vI2DNJGd8
 public class ReverseListIteratively {
     public static ListNode reverseList(ListNode head) {
       if(null==head){
@@ -7,6 +7,7 @@ public class ReverseListIteratively {
       }
      ListNode prev=null;
      ListNode current=head;
+     //dry run to understand this: prev is a fictional node taken before head to invert pointers
      while(null!=current){
          ListNode temp=current.next;
          current.next=prev;
