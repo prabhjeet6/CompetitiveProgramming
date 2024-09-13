@@ -7,6 +7,7 @@ import java.util.Stack;
 public class PreOrderTraversal {
     List<Integer> traversal = new ArrayList<Integer>();
 
+    //TC:O(N) SC:O(H)
     public List<Integer> preorderTraversalRecursive(TreeNode root) {
 
         if (null == root) {
@@ -18,7 +19,9 @@ public class PreOrderTraversal {
         return traversal;
     }
 
-
+    //Recursion uses System Stack, since we are implementing PreOrder(Root|Left|Right) iteratively,
+    // and using stack(LIFO) to mimic the behaviour, we first insert root, then right and then left
+   //TC:O(N) SC:O(H)
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> traversal = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<>();
