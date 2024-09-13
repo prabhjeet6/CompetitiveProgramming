@@ -58,4 +58,28 @@ public class InOrderTraversal {
         return traversal;
     }
 
+    //Recursion uses System Stack, since we are implementing InOrder(Left|Root|Right) iteratively,
+    // and using stack(LIFO) to mimic the behaviour, we first insert right, then root and then left
+
+    public List<Integer> inorderTraversalIterativeUsingStackWithoutFlag(TreeNode root) {
+        TreeNode temp=root;
+        Stack<TreeNode> stack = new Stack<>();
+        List<Integer> traversal = new ArrayList<Integer>();
+        //the first element that is printed is either the last node or the leftmost node
+        // that has a null pointer on the left.
+       while (temp!=null){
+           stack.push(temp);
+           temp=temp.left;
+       }
+       while (!stack.isEmpty()){
+           TreeNode currentNode=stack.pop();
+           traversal.add(currentNode.val);
+           TreeNode currentRight=currentNode.right;
+           while(currentRight!=null){
+               stack.push(currentRight);
+               currentRight=currentRight.left;
+           }
+       }
+    return traversal;
+    }
 }
