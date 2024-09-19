@@ -8,6 +8,7 @@ public class KthNearestObstacleQueries {
     //since a queue returns peek element instead of kth index as in the case of Brute force solution,
     //and as we need the kth farthest obstacle  everytime(kth largest number), hence, we use max heap
     //priority queue to get the biggest number first when calling peek()
+    //TC: O(nlogk) SC: O(n)
     public int[] resultsArray(int[][] queries, int k) {
         int n = queries.length;
         int[] results = new int[n];
