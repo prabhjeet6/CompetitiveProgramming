@@ -15,6 +15,7 @@ class Node
 	}
 
 }*/
+//NodePair  describes the Head and Tail of the Doubly LinkedList converted from the BinaryTree
 class NodePair {
     Node head;
     Node tail;
@@ -34,6 +35,7 @@ public class BinaryTreeToDoublyLinkedList {
         if (root == null) {
             return new NodePair(null, null);
         }
+        //recurse for left and right subtree
         NodePair leftSubTree = convertBinaryTreeToDoublyLinkedList(root.left);
         NodePair rightSubTree = convertBinaryTreeToDoublyLinkedList(root.right);
 
