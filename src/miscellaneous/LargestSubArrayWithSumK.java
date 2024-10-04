@@ -29,6 +29,8 @@ public class LargestSubArrayWithSumK {
                     found = true;
                     maxSubArrayLength = Math.max(maxSubArrayLength, i - map.get(prefixSum[i] - k));
                 } else {
+                    //insert  (prefixSum[i], i) for each index so that other indices
+                    // can check for it, and if it is present then access its index
                     map.put(prefixSum[i], (long) i);
                 }
             }
