@@ -22,6 +22,8 @@ public class PeakElement {
         while (low <= high) {
             mid = (low + high) / 2;
                 if(arr.length==1){
+                    //because indices outside of Array are negative infinity, hence, single element
+                    //automatically is peak element
                     return 0;
                 }else if(mid==0&&arr[mid] >= arr[mid + 1] ){
                     return mid;
