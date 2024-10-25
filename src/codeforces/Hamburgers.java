@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 //https://codeforces.com/problemset/problem/371/C?mobile=true
-//Search over monotonic space(count of Hamburgers)
+
 public class Hamburgers {
     public static void main(String[] a) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -16,9 +16,9 @@ public class Hamburgers {
         int cheese = Integer.parseInt(inventory[2]);
 
         String[] prices = bufferedReader.readLine().split(" ");
-        int breadPrice = Integer.parseInt(inventory[0]);
-        int sausagePrice = Integer.parseInt(inventory[1]);
-        int cheesePrice = Integer.parseInt(inventory[2]);
+        int breadPrice = Integer.parseInt(prices[0]);
+        int sausagePrice = Integer.parseInt(prices[1]);
+        int cheesePrice = Integer.parseInt(prices[2]);
 
         long totalRubles = Long.parseLong(bufferedReader.readLine());
 
@@ -32,6 +32,8 @@ public class Hamburgers {
                 cheese4Ham++;
             }
         }
+        //Search over monotonic space(total number of Hamburgers that can be afforded with total money
+        // and already present ingredients, which by the way is already a sorted property of the problem)
         //maximum burgers which can be made are 100+totalRubles (as we can have each ingredient
         // max Quantity of 100 and cheapest price of an ingredient be one rubel )
         long low = 0, high = totalRubles + 100, mid = 0;
@@ -41,7 +43,7 @@ public class Hamburgers {
             //now calculate cost of 'mid' hamburgers
             long countOfBread = Math.max(breads4Ham * mid - breads, 0L);
             long countSausage = Math.max(sausages4Ham * mid - sausages, 0L);
-            long countOfCheese = Math.max(cheesePrice * mid - cheese, 0L);
+            long countOfCheese = Math.max(cheese4Ham * mid - cheese, 0L);
 
             long totalCost = breadPrice * countOfBread + sausagePrice * countSausage + cheesePrice * countOfCheese;
 
