@@ -62,7 +62,6 @@ public class SmallestDivisorWithSumLessThanThreshold {
     private static boolean isFeasible(int mid,int[] nums, int threshold){
         int sum=0;
 
-        if(mid<1)return false;
         for(int num:nums){
             int signVal = num > 0 ? 1 : -1;
             int remainder = num % mid != 0 ? signVal : 0;
