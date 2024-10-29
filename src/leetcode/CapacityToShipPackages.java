@@ -1,10 +1,10 @@
-package miscellaneous;
+package leetcode;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-
+//https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/submissions/1437202753/
 public class CapacityToShipPackages {
     public static void main(String[] a) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));

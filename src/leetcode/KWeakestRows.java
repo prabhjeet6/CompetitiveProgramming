@@ -1,9 +1,9 @@
-package miscellaneous;
+package leetcode;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
-
+//https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/
 class SoldiersInRow{
     int numberOfSoldiers;
     int rowNum;
