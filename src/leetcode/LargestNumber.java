@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
+//https://leetcode.com/problems/largest-number/description/
 public class LargestNumber {
 
     public static void main(String[] a) {
@@ -18,6 +18,9 @@ public class LargestNumber {
             numStrings.add(String.valueOf(num));
         }
         //reverse sort on concatenation
+        // for eg:[10,2]
+        // a+b=102
+        // b+a=210
         Collections.sort(numStrings, (o1, o2) -> (o1 + o2).compareTo(o2 + o1));
         //if after sorting(Lexicographical), the first element is 0, then all elements are zero and
         // resulting String should be zero
