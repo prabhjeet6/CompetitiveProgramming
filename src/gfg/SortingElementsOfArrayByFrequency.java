@@ -6,7 +6,7 @@ package gfg;
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-
+//https://www.geeksforgeeks.org/problems/sorting-elements-of-an-array-by-frequency/0
 class ValueFreqModel {
     int val;
     int freq;
@@ -54,7 +54,7 @@ class SortingElementsOfArrayByFrequency {
                     list.add(model);
                 }
             }
-            Collections.sort(list, new ValueFreqModelComparator());
+            list.sort(new ValueFreqModelComparator());
             for (ValueFreqModel model : list) {
                 for (int i = 0; i < model.freq; i++) {
                     System.out.print(model.val + " ");
