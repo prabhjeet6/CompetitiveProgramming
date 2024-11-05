@@ -29,13 +29,11 @@ class AdvantageShuffle {
         // remaining = list of a that are not assigned to any b
         Deque<Integer> remaining = new LinkedList<>();
 
-        // populate (assigned, remaining) appropriately
-        // sortedB[j] is always the smallest unassigned element in B
+
         int j = 0;
         for (int a : sortedA) {
-            //if 'a'  is greater than 'b', then, create list of 'a' that will be greater than
-            //'b' and map it against 'b', else, add it to remainingList, as these elements are smallest
-            // and hence useless.
+            //In case sortedA is greater than sortedB, it is added in the map, but, please note in case sortedA<sortedB, it is added to remainingList,
+            // but, sorted B's index is not increased as it has to still find values in A that are larger than B
             if (a > sortedB[j]) {
                 assigned.get(sortedB[j++]).add(a);
             } else {
@@ -45,13 +43,8 @@ class AdvantageShuffle {
 
         int[] ans = new int[B.length];
         for (int i = 0; i < B.length; ++i) {
-            //We have a map that contains which values of A is B[i] small from
-            //There could be multiple values, hence, using List in the map
-            //since B[i] is anyway smaller than those list of values, A which has to be
-            //modified, can take any value
-            //it will give wrong output if there are two different values of B[i] that have same set of
-            //values from which it is smaller, because it will hold two different lists against two
-            //different B[i], and each time it will pop the same value
+            //In case there are multiple values in map, that means there are duplicates in B multiple a[i] are greater, and hence,
+            // we are able to assign to ans[]
             if (!assigned.get(B[i]).isEmpty())
                 ans[i] = assigned.get(B[i]).pop();
             else
