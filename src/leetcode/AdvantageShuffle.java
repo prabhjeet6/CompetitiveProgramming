@@ -6,7 +6,8 @@ import java.util.*;
 class AdvantageShuffle {
 
     public static void main(String[] a) {
-        System.out.println(Arrays.toString(advantageCount(new int[]{2, 7, 11, 15}, new int[]{1, 10, 4, 11})));
+        //Use this example only for clarity
+        System.out.println(Arrays.toString(advantageCount(new int[]{2, 0, 4, 1, 2}, new int[]{1, 3, 0, 0, 2})));
     }
 
     public static int[] advantageCount(int[] A, int[] B) {
@@ -44,11 +45,77 @@ class AdvantageShuffle {
 
         int[] ans = new int[B.length];
         for (int i = 0; i < B.length; ++i) {
+            //We have a map that contains which values of A is B[i] small from
+            //There could be multiple values, hence, using List in the map
+            //since B[i] is anyway smaller than those list of values, A which has to be
+            //modified, can take any value
+            //it will give wrong output if there are two different values of B[i] that have same set of
+            //values from which it is smaller, because it will hold two different lists against two
+            //different B[i], and each time it will pop the same value
             if (!assigned.get(B[i]).isEmpty())
                 ans[i] = assigned.get(B[i]).pop();
             else
                 ans[i] = remaining.pop();
         }
         return ans;
+    }
+}
+
+class Solution2 {
+    //GOAL + Approch:
+    //we have to maximize Advantage . i.e rearrange array A such that number of idx following
+    // this property A[i]>B[i] is maximum.
+    //we will approch greedly try the maximum value of A on maximum value of B. if maximum of A is
+    // greater than maximum of B. will put that maximum at that index.
+    //if maximum value of A is less than maximum value of B .If we put the maximum of A here it is
+    // a loss. because its not contributing to advantage so better to put minimum value of A here
+    // and use the maximum next time maybe its greater than that and contribute to advantage.
+    public int[] advantageCount(int[] A, int[] B) {
+        int[] result = new int[A.length];
+
+        PriorityQueue<Pair> pq = new PriorityQueue<>();
+        for (int i = 0; i < B.length; i++) {
+            int val = B[i];
+            Pair np = new Pair(val, i);
+            pq.add(np);
+        }
+
+        Arrays.sort(A);
+
+        int end = A.length - 1;
+        int start = 0;
+        while (start <= end) {
+            Pair top = pq.remove();
+
+            int idx = top.idx;
+            int val = top.val;
+
+            int max = A[end];
+            int min = A[start];
+
+            if (max > val) {
+                result[idx] = max;
+                end--;
+            } else {
+                result[idx] = min;
+                start++;
+            }
+        }
+        return result;
+    }
+
+    public class Pair implements Comparable<Pair> {
+        int idx;
+        int val;
+
+        Pair(int val, int idx) {
+            this.val = val;
+            this.idx = idx;
+        }
+
+        @Override
+        public int compareTo(Pair other) {
+            return other.val - this.val;
+        }
     }
 }
