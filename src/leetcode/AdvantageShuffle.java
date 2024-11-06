@@ -7,7 +7,8 @@ class AdvantageShuffle {
 
     public static void main(String[] a) {
         //Use this example only for clarity
-        System.out.println(Arrays.toString(advantageCount(new int[]{2, 0, 4, 1, 2}, new int[]{1, 3, 0, 0, 2})));
+        //System.out.println(Arrays.toString(advantageCount(new int[]{2, 0, 4, 1, 2}, new int[]{1, 3, 0, 0, 2})));
+        System.out.println(Arrays.toString(new Solution2().advantageCount(new int[]{2, 0, 4, 1, 2}, new int[]{1, 3, 0, 0, 2})));
     }
 
     public static int[] advantageCount(int[] A, int[] B) {
