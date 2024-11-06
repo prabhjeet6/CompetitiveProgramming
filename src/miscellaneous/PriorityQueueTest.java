@@ -11,11 +11,13 @@ public class PriorityQueueTest {
         queue.add(1);
         queue.add(2);
         queue.add(3);
+
+        //After two iterations Queue size is 1 and 'i' is also  1
         for(int i=0;i<queue.size();i++){
             System.out.println(queue.peek());
             queue.poll();
         }
-        System.out.println(queue.peek());
+        System.out.println("hello : "+queue.peek());
 
         System.out.println();
 

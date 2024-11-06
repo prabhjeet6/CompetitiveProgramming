@@ -68,6 +68,7 @@ public class KefaAndCompany {
                 currentSum -= ls.get(l).fF;
                 l++;
             }
+            //if currentSum is smaller, discard
             sum = Math.max(sum, currentSum);
         }
 
