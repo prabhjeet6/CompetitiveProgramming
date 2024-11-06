@@ -1,11 +1,11 @@
-package gfg;
+package gfg.twopointers;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.stream.Stream;
 
 public class MinimizeTheExpression {
-
+    //https://www.geeksforgeeks.org/minimize-maxai-bj-ck-minai-bj-ck-three-different-sorted-arrays/
     // Minimize the Expression: max(a,b,c)-min(a,b,c) where a,b,c belong from three sorted Arrays A,B,C
     public static void main(String asd[]) throws Exception {
 

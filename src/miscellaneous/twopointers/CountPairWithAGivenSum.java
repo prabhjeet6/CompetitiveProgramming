@@ -1,4 +1,4 @@
-package miscellaneous;
+package miscellaneous.twopointers;
 
 import java.io.BufferedReader;
 import java.io.IOException;

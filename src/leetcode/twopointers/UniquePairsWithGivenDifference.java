@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.twopointers;
 
 import java.io.BufferedReader;
 import java.io.IOException;

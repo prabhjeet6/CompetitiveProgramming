@@ -1,4 +1,4 @@
-package miscellaneous;
+package miscellaneous.hashing;
 
 
 import java.util.*;

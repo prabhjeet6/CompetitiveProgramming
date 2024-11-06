@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.hashing;
 
 import java.io.BufferedReader;
 import java.io.IOException;
