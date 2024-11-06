@@ -1,4 +1,4 @@
-package gfg;
+package gfg.sorting;
 
 public class InsertionSort {
     static void insert(int arr[],int i)

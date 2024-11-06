@@ -1,4 +1,4 @@
-package codeforces;
+package leetcode.sorting;
 
 import java.util.PriorityQueue;
 

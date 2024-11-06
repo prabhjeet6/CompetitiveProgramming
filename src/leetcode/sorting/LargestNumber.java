@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.sorting;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package gfg;
+package gfg.sorting;
 
 
 /*package whatever //do not write package name here */

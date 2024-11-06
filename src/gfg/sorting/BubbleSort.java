@@ -1,4 +1,4 @@
-package gfg;
+package gfg.sorting;
 
 public class BubbleSort {
     public static void bubbleSort(int a[], int n)

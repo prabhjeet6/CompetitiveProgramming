@@ -1,4 +1,4 @@
-package miscellaneous;
+package miscellaneous.sorting;
 
 import java.io.BufferedReader;
 import java.io.IOException;

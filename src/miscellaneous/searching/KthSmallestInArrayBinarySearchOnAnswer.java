@@ -1,4 +1,4 @@
-package miscellaneous;
+package miscellaneous.searching;
 
 import java.lang.*;
 import java.io.*;
