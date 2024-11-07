@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 public class AssesmentProblem {
     //19=1+9+9 3 steps
     //20=1+9+9 +1 3 steps
+    // 1 10 19 28 37
+
     public static void main(String[] a) throws Exception {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         long n = Long.parseLong(bufferedReader.readLine());
@@ -17,6 +19,7 @@ public class AssesmentProblem {
             }
         }
         System.out.println(count);
+        //1
     }
 
 }
