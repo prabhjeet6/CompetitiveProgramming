@@ -1,25 +1,28 @@
-package miscellaneous;
+package miscellaneous;/* package codechef; // don't place package name! */
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+/* Name of the class has to be "Main" only if the class is public. */
+public class AssesmentProblem
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
+        BufferedReader bf=new BufferedReader(new InputStreamReader(System.in));
+        int t=Integer.parseInt(bf.readLine().trim());
 
-public class AssesmentProblem {
-    //19=1+9+9 3 steps
-    //20=1+9+9 +1 3 steps
-    // 1 10 19 28 37
+        for(int i=1;i<=t;i++){
+            //a1 a2 a3 a4 a5
+            // 1 10 19 28 37..
+            long leaps=0,distance=0,leapDistance=1;
+            long n= Long.parseLong(bf.readLine().trim());
+            while(distance<n){
+                distance+=leapDistance;
+                leapDistance+=9;
+                leaps++;
 
-    public static void main(String[] a) throws Exception {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        long n = Long.parseLong(bufferedReader.readLine());
-        long steps = 1,count=1;
-        while (n - 1 > steps) {
-            if (steps + 9 <= n) {
-                steps += 9;
-                count++;
             }
+            System.out.println("Case #"+i+": "+leaps);
         }
-        System.out.println(count);
-        //1
     }
-
 }
