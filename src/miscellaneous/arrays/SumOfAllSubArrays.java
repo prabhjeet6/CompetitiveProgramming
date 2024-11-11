@@ -24,7 +24,7 @@ import java.util.Scanner;
  * Example Input 3 1 2 3 Output 20
  */
 public class SumOfAllSubArrays {
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 		// s.useDelimiter("[\\s,]+");
 		s.useDelimiter("[\\s]*");

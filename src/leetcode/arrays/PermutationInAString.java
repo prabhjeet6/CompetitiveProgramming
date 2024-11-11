@@ -1,4 +1,4 @@
-package miscellaneous.arrays;
+package leetcode.arrays;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -50,8 +50,8 @@ public class PermutationInAString {
 		if (s1.length() > s2.length()) {
 			return "False";
 		}
-		int s1Frequency[] = new int[26];
-		int windowFrequency[] = new int[26];
+		int[] s1Frequency = new int[26];
+		int[] windowFrequency = new int[26];
 		for (int i = 0; i < s1.length(); i++) {
 			s1Frequency[s1.charAt(i) - 'a']++;
 			windowFrequency[s2.charAt(i) - 'a']++;

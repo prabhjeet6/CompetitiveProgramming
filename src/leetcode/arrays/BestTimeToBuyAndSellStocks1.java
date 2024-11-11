@@ -1,8 +1,8 @@
-package miscellaneous.arrays;
+package leetcode.arrays;
 
 import java.util.Scanner;
 import java.util.stream.Stream;
-
+//https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
 /***
  * You are given an array prices where prices[i] is the price of a given stock
  * on the ith day.
@@ -18,8 +18,8 @@ public class BestTimeToBuyAndSellStocks1 {
 		Scanner s = new Scanner(System.in);
 		int numberOfDays = Integer.parseInt(s.nextLine());
 
-		int stockPrices[] = Stream.of(s.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-		int profitMax[] = new int[numberOfDays];
+		int[] stockPrices = Stream.of(s.nextLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+		int[] profitMax = new int[numberOfDays];
 		// we need optimal price in future(Suffix Max)
 		profitMax[numberOfDays - 1] = stockPrices[numberOfDays - 1];
 		for (int i = numberOfDays - 2; i >= 0; i--) {

@@ -1,4 +1,4 @@
-package miscellaneous.arrays;
+package leetcode.arrays;
 
 import java.util.Scanner;
 import java.util.stream.Stream;

@@ -1,4 +1,4 @@
-package miscellaneous.arrays;
+package leetcode.arrays;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -34,11 +34,12 @@ import java.util.stream.Stream;
  * 
  * 1
  */
+//https://leetcode.com/problems/majority-element/submissions/1448630805/
 public class MajorityElement1 {
-	public static void main(String args[]) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(bufferedReader.readLine());
-		int nums[] = new int[N];
+		int[] nums = new int[N];
 		nums = Stream.of(bufferedReader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 		Arrays.sort(nums);
 		int count = 0,lastIndex=nums.length - 1,totalElements=nums.length;
@@ -61,8 +62,6 @@ public class MajorityElement1 {
 				if (count > totalElements / 2) {
 					System.out.println(nums[i]);
 					return;
-				} else {
-					count = 0;
 				}
 			}
 		}
