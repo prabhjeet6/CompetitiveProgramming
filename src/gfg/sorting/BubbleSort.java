@@ -18,6 +18,7 @@ public class BubbleSort {
         }
     }
     public static void main(String asd[]){
+     bubbleSort(new int[]{4,1,4,3,2},5);
 
     }
 }

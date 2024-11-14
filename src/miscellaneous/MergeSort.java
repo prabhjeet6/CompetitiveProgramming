@@ -10,8 +10,8 @@ public class MergeSort {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(bufferedReader.readLine());
         int[] arr = Arrays.stream(bufferedReader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-        //mergesortRecursive(arr, 0, N - 1);
-        mergeSortIterative(arr);
+        mergesortRecursive(arr, 0, N - 1);
+        //mergeSortIterative(arr);
         for(int i=0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
