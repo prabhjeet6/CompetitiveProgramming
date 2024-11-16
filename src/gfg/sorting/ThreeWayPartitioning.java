@@ -19,7 +19,7 @@ class ThreeWayPartitioning {
         a[x] = a[y];
         a[y] = temp;
     }
-
+    // refer to Partitioning notes on PPA
     public static void threeWayPartition(int[] array, int a, int b) {
 
         int lessThanA = 0, aToB = 0;
