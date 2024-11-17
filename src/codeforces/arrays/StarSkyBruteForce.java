@@ -82,6 +82,7 @@ public class StarSkyBruteForce {
 			if (x1 <= coordinates[i][0] && x2 >= coordinates[i][0] && y1 <= coordinates[i][1]
 					&& y2 >= coordinates[i][1]) {
 				if (t > c)
+					//t starts from 0,
 					totalBrightness += (t + brightness[i]) % (c+1);
 				else
 					totalBrightness += (t + brightness[i]);
@@ -90,3 +91,4 @@ public class StarSkyBruteForce {
 		System.out.println(totalBrightness);
 	}
 }
+
