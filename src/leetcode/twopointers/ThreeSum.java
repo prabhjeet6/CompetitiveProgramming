@@ -48,7 +48,8 @@ class ThreeSum {
         return list;
     }
 
-    //Taking Set instead of List prevents TLE
+    //Taking Set instead of List prevents TLE,Set performs better because of O(1) insertion compared to
+    //O(N) search, before insertion in list
     //TC:O(N^2) SC:O(1)
     public static List<List<Integer>> threeSum(int[] nums) {
         //sort the array to apply two pointers
