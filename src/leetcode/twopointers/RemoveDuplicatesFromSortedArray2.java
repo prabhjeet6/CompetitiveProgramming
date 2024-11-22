@@ -14,8 +14,8 @@ public class RemoveDuplicatesFromSortedArray2 {
         System.out.println(removeDuplicates(nums));
         System.out.println(Arrays.toString(nums));
     }
-    //11:34pm
     public static int removeDuplicates(int[] nums) {
+        //two pointers approach, maintaining i and j
        int i=0,n=nums.length,count=0;
        for(int j=1;j<n;j++){
            if(count<1||nums[i]!=nums[j]){
