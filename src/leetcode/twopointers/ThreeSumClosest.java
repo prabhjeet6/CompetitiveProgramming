@@ -17,7 +17,7 @@ class ThreeSumClosest {
         int val = 0, ans = 0;
         Arrays.sort(nums);
         int closeVal = Integer.MAX_VALUE;
-        for (int i = 0; i < n-2; i++) {
+        for (int i = 0; i < n - 2; i++) {
             int j = i + 1, k = n - 1;
             while (j < k) {
                 val = nums[i] + nums[j] + nums[k];
@@ -33,7 +33,7 @@ class ThreeSumClosest {
                 } else {
                     k--;
                 }
-                if (closeVal >currentDiff) {
+                if (closeVal > currentDiff) {
                     closeVal = currentDiff;
                     //return ans instead of val, there could be a situation where val is calculated,but
                     //then loop terminates, in that case, answer corresponds to the previous value that
@@ -44,4 +44,36 @@ class ThreeSumClosest {
         }
         return ans;
     }
+
+    public static int threeSumClosest1(int[] nums, int target) {
+        int min = Integer.MAX_VALUE;
+        int n = nums.length;
+        int val = 0, ans = 0;
+        Arrays.sort(nums);
+        for (int i = 0; i < n; i++) {
+            int j = i + 1, k = n - 1;
+            while (j < k) {
+                val = nums[i] + nums[j] + nums[k];
+                if (val == target) {
+                    return val;
+                }
+                int closeVal = Math.abs(target - val);
+                //consider equal to situation, and do not only check for less or more,
+                // otherwise loop may run indefinitely
+                if (closeVal > min) {
+                } else {
+                    min = closeVal;
+                    //return ans instead of val, there could be a situation where val is calculated,but
+                    //then loop terminates, in that case, answer corresponds to the previous value that
+                    //satisfied and not newly calculated val
+
+                    ans = val;
+                }
+                if (val > target) k--;
+                else j++;
+            }
+        }
+        return ans;
+    }
+}
 }
