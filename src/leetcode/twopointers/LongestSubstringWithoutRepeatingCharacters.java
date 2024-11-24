@@ -8,7 +8,9 @@ import java.util.Set;
 
 public class LongestSubstringWithoutRepeatingCharacters {
 
-
+     public static void main(String[]a){
+         lengthOfLongestSubstringBruteForce("abcabcbb");
+     }
     public static int lengthOfLongestSubstring(String s) {
         return lengthOfLongestSubstringUsingTwoPointers(s);
     }

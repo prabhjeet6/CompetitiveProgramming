@@ -59,21 +59,22 @@ class ThreeSumClosest {
                 }
                 int closeVal = Math.abs(target - val);
                 //consider equal to situation, and do not only check for less or more,
-                // otherwise loop may run indefinitely
+               // otherwise loop may run indefinitely
                 if (closeVal > min) {
                 } else {
                     min = closeVal;
                     //return ans instead of val, there could be a situation where val is calculated,but
-                    //then loop terminates, in that case, answer corresponds to the previous value that
-                    //satisfied and not newly calculated val
+                   //then loop terminates, in that case, answer corresponds to the previous value that
+                  //satisfied and not newly calculated val
 
                     ans = val;
                 }
-                if (val > target) k--;
+                if(val>target) k--;
                 else j++;
             }
         }
         return ans;
     }
+
 }
-}
+
