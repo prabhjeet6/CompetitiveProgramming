@@ -12,7 +12,7 @@ public class PriorityQueueTest {
         queue.add(2);
         queue.add(3);
 
-        //After two iterations Queue size is 1 and 'i' is also  1
+        //After two iterations Queue size is 1 and 'i' is also 2
         for(int i=0;i<queue.size();i++){
             System.out.println(queue.peek());
             queue.poll();
