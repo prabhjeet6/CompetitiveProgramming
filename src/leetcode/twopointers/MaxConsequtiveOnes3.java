@@ -25,22 +25,5 @@ class MaxConsequtiveOnes3 {
     }
 
 
-    //TC:O(2N) SC:O(N)
-    public int longestOnes(int[] nums, int k) {
-        int l = 0, maxOnes = 0, zeros = 0, r = 0, n = nums.length;
-        while (r < n) {
-            if (nums[r] == 0) {
-                zeros++;
-            }
-            while (zeros > k) {
-                if (nums[l] == 0) {
-                    zeros--;
-                }
-                l++;
-            }
-            r++;
-            maxOnes = Math.max(maxOnes, r - l);
-        }
-        return maxOnes;
-    }
 }
+
