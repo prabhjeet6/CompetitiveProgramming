@@ -1,4 +1,4 @@
-package leetcode.sorting;
+package leetcode.twopointers;
 
 
 import java.util.HashMap;
