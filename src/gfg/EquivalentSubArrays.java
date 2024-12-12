@@ -16,15 +16,20 @@ class EquivalentSubArrays {
         HashMap<Integer, Integer> map = new HashMap<>();
         HashSet<Integer> set = new HashSet<>();
         int count = 0;
+        //total unique elements
         for (int i = 0; i < n; i++) {
             set.add(a[i]);
         }
         int i = 0;
         for (int j = 0; j < n; j++) {
+            //put frequency of array elements until map size is equal to set size.
             map.put(a[j], map.getOrDefault(a[j], 0) + 1);
             while (map.size() == set.size()) {
+                //add the number of sub arrays starting from index j
                 count += n - j;
+                //removing element from left and shift the window
                 map.put(a[i], map.get(a[i]) - 1);
+                //if frequency is zero, remove the element from map
                 if (map.get(a[i]) == 0) {
                     map.remove(a[i]);
                 }
