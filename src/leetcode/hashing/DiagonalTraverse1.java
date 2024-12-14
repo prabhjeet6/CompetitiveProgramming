@@ -16,7 +16,7 @@ class Coordinates {
     }
 }
 
-class DiagonalTraverse {
+class DiagonalTraverse1 {
     public int[] findDiagonalOrder(int[][] mat) {
         Map<Integer, List<Coordinates>> map = new HashMap<>();
         for (int i = 0; i < mat.length; i++) {
