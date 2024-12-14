@@ -23,9 +23,6 @@ class DiagonalTraverse2 {
                 }
             }
         }
-
-        //ans = new int[ansLen];
-
         for (int i = 0; i < map.size(); i++) {
             List<Coordinates> ls = map.get(i);
             ls.sort((p1, p2) -> p1.y - p2.y);
@@ -33,10 +30,7 @@ class DiagonalTraverse2 {
                 for (Coordinates p : ls) {
                     if (!nums.get(p.x).isEmpty()) {
                         if (nums.get(p.x).get(p.y) != null) {
-                            //System.out.print(nums.get(p.x).get(p.y) + " ");
-                            //ans[count++] = nums.get(p.x).get(p.y);
                             ans.add(nums.get(p.x).get(p.y));
-
                         }
                     }
                 }
@@ -51,12 +45,4 @@ class DiagonalTraverse2 {
     }
 }
 
-class Coordinates {
-    int x;
-    int y;
 
-    Coordinates(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
