@@ -10,14 +10,14 @@ public class CWatchmen {
         int n = Integer.parseInt(bf.readLine());
         List<Pair> pairs = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            int[] xy = Arrays.stream(bf.readLine().split(" "))
-                    .mapToInt(Integer::parseInt).toArray();
+            long[] xy = Arrays.stream(bf.readLine().split(" "))
+                    .mapToLong(Long::parseLong).toArray();
             Pair p = new Pair();
             p.x = xy[0];
             p.y = xy[1];
             pairs.add(p);
         }
-        int count = getEqualDistanceCount(n, pairs);
+        long count = getEqualDistanceCount(n, pairs);
         System.out.println(count);
     }
 
@@ -45,48 +45,56 @@ public class CWatchmen {
     //(ManhattanDistance)^2=(|x1-x2|+|y1-y2|)^2 => (x1-x2)^2 - (y1-y2)^2 -2|x1-x2||y1-y2|
     //Inorder for Manhattan distance and euclideanDistance to be equal, |x1-x2||y1-y2| needs to be zero, that is, either x1 should be equal to x2
     //or, y1 should be equal to y2
-    private static int getEqualDistanceCount(int n, List<Pair> pairs) {
-        Set<Pair> set = new HashSet<>();
-        Map<Integer, Integer> xMap = new HashMap<>();
-        Map<Integer, Integer> yMap = new HashMap<>();
-        int duplicates = 0;
-        for (int i = 0; i < pairs.size(); i++) {
-            Pair p = pairs.get(i);
-            if (set.contains(p)) {
-                duplicates++;
+    private static long getEqualDistanceCount(int n, List<Pair> pairs) {
+        Map<Pair, Long> pointMap = new HashMap<>();
+        Map<Long, Long> xMap = new HashMap<>();
+        Map<Long, Long> yMap = new HashMap<>();
+        long duplicates = 0;
+        for (Pair p : pairs) {
+            if (!pointMap.containsKey(p)) {
+                pointMap.put(p, 1L);
+            } else {
+                long val = pointMap.get(p);
+                pointMap.put(p, val + 1L);
             }
-            set.add(p);
 
-            if(!xMap.containsKey(p.x)){
-                xMap.put(p.x,  1);
-            }else{
-                int val=xMap.get(p.x);
-                xMap.put(p.x,val+1);
+            if (!xMap.containsKey(p.x)) {
+                xMap.put(p.x, 1L);
+            } else {
+                long val = xMap.get(p.x);
+                xMap.put(p.x, val + 1);
             }
-            if(!yMap.containsKey(p.y)){
-                yMap.put(p.y,  1);
-            }else{
-                int val=yMap.get(p.y);
-                yMap.put(p.y,val+1);
+            if (!yMap.containsKey(p.y)) {
+                yMap.put(p.y, 1L);
+            } else {
+                long val = yMap.get(p.y);
+                yMap.put(p.y, val + 1L);
             }
         }
-        int ans = 0;
-
-        for (Map.Entry<Integer, Integer> entry : xMap.entrySet()) {
-            int val = xMap.get(entry.getKey());
+        //if there are n coordinates with equal x values, then first coordinate will have equal distance
+        //with n-1 coordinates, second one will have equal distance with n-2 coordinates apart from the
+        //first, and so on. hence, using   ans += (val * (val - 1)) / 2;
+        //same logic applies when calculating for y coordinates or duplicates
+        long ans = 0L;
+        for (Map.Entry<Long, Long> entry : xMap.entrySet()) {
+            long val = xMap.get(entry.getKey());
             ans += (val * (val - 1)) / 2;
         }
-        for (Map.Entry<Integer, Integer> entry : yMap.entrySet()) {
-            int val = yMap.get(entry.getKey());
+        for (Map.Entry<Long, Long> entry : yMap.entrySet()) {
+            long val = yMap.get(entry.getKey());
             ans += (val * (val - 1)) / 2;
         }
-        return ans - duplicates;
+        for (Map.Entry<Pair, Long> entry : pointMap.entrySet()) {
+            long val = pointMap.get(entry.getKey());
+            duplicates += (val * (val - 1)) / 2;
+        }
+        return (ans - duplicates);
     }
 }
 
 class Pair {
-    int x;
-    int y;
+    long x;
+    long y;
 
     @Override
     public boolean equals(Object o) {
