@@ -1,7 +1,7 @@
 package leetcode.stacks;
 
 
-import java.util.Stack;
+import java.util.*;
 
 class Solution {
     public static void main(String[] as) {
@@ -34,12 +34,12 @@ class Solution {
                     unixStack.pop();
                     top = unixStack.peek();
                 }
-                while (!unixStack.isEmpty()&&parentdirectoryOps > 0) {
+                while (!unixStack.isEmpty() && parentdirectoryOps > 0) {
                     top = unixStack.peek();
-                    if (!(".".equals(top)||"".equals(top)||"..".equals(top))) {
+                    if (!(".".equals(top) || "".equals(top) || "..".equals(top))) {
                         parentdirectoryOps--;
                     }
-                    if("..".equals(top)){
+                    if ("..".equals(top)) {
                         parentdirectoryOps++;
                     }
                     unixStack.pop();
@@ -52,4 +52,19 @@ class Solution {
         String resultant = canonicalPath.toString();
         return resultant.isEmpty() ? "/" : resultant;
     }
+
+    public String simplifyPathApproach2(String path) {
+        Deque<String> stack = new LinkedList<>();
+        Set<String> skip = new HashSet<>(Arrays.asList("..", ".", ""));
+        //reading in FIFO manner, if we encounter "..", pop() directly from the elements that have been
+        //visited before and stored in stack
+        for (String dir : path.split("/")) {
+            if (dir.equals("..") && !stack.isEmpty()) stack.pop();
+            else if (!skip.contains(dir)) stack.push(dir);
+        }
+        String res = "";
+        for (String dir : stack) res = "/" + dir + res;
+        return res.isEmpty() ? "/" : res;
+    }
+
 }
