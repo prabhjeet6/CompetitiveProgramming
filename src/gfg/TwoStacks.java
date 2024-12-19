@@ -2,10 +2,10 @@ package gfg;
 
 //{ Driver Code Starts
 import java.util.*;
-/**https://www.geeksforgeeks.org/problems/implement-two-stacks-in-an-array/1*/
+/**<a href="https://www.geeksforgeeks.org/problems/implement-two-stacks-in-an-array/1">...</a>*/
 class TwoStack
 {
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();
@@ -51,7 +51,7 @@ class twoStacks
 {
     int top1=-1;
     int top2=200;
-    int twoStacks[]=new int[200];
+    int[] twoStacks =new int[200];
     twoStacks(){
     }
     //Function to push an integer into the stack1.
