@@ -3,10 +3,7 @@ package codeforces;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Deque;
-import java.util.List;
-import java.util.stream.Collectors;
 
 //https://codeforces.com/contest/81/problem/A?mobile=true
 public class Plugin {
@@ -14,6 +11,7 @@ public class Plugin {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String s = bufferedReader.readLine();
         pluginOutput(s);
+
 
     }
 
@@ -29,7 +27,6 @@ public class Plugin {
                     stack.push(c);
                 } else {
                     stack.pop();
-
                 }
             }
         }
@@ -41,5 +38,6 @@ public class Plugin {
         }
         System.out.println(ans);
     }
+
 }
 
