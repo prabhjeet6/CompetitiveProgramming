@@ -1,4 +1,4 @@
-package codeforces;
+package codeforces.stacks;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,14 +11,13 @@ public class Plugin {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String s = bufferedReader.readLine();
         pluginOutput(s);
-
-
     }
 
     static void pluginOutput(String s) {
         Deque<Character> stack = new ArrayDeque<>();
+        StringBuilder sb = new StringBuilder(s);
         for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
+            char c = sb.charAt(i);
             if (stack.isEmpty()) {
                 stack.push(c);
             } else {
@@ -30,14 +29,11 @@ public class Plugin {
                 }
             }
         }
-
-
-        String ans = "";
+        StringBuilder str = new StringBuilder();
         while (!stack.isEmpty()) {
-            ans = stack.pop() + ans;
+            str.append(stack.pop());
         }
-        System.out.println(ans);
+        System.out.println(str.reverse());
     }
-
 }
 

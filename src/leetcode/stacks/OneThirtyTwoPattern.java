@@ -55,7 +55,7 @@ class OneThirtyTwoPattern {
     //TC:O(N) SC:O(1)
     public static boolean find132pattern(int[] nums) {
         int thirdElement = Integer.MIN_VALUE;//maintains kth Element
-        Stack<Integer> stack = new Stack<>();//maintains 32 pattern
+        Stack<Integer> stack = new Stack<>();//Monotonic stack, maintains 32 pattern
         // we are looping in reverse order because while the  loop is maintaining ith Element but, jth and kth Element will be found
         // after ith Element. stack maintains '32' part of '132' pattern, and stores jth Element
         for (int i = nums.length - 1; i >= 0; i--) {
