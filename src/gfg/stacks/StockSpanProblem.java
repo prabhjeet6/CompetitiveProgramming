@@ -30,25 +30,24 @@ public class StockSpanProblem {
     //The stack should store indices of the elements rather than the elements themselves. The span
     // is not simply the count of popped elements or adding a difference. It should be the difference
     // between the current index i and the last index where a higher price was found (from the stack).
+    //System.out.println(calculateSpan(new int[]{10, 4, 5, 90, 120, 80}));
+    //[1, 1, 2, 4, 5, 1]
     public static ArrayList<Integer> calculateSpan(int[] arr) {
         ArrayList<Integer> ans = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < arr.length; i++) {
-            ans.add(1);
-            while (!stack.isEmpty() && stack.peek() <= arr[i]) {
+
+            while (!stack.isEmpty() && arr[stack.peek()] <= arr[i]) {
                 stack.pop();
-                ans.set(i, ans.get(i) + 1);
             }
-            stack.push(arr[i]);
-        }
-        int diff = 0;
-        for (int i = 1; i < ans.size(); i++) {
-            if (ans.get(i - 1) != 1)
-                diff = (ans.get(i - 1) - 1);
-            if (ans.get(i) != 1) {
-                ans.set(i, ans.get(i) + diff);
+            if (!stack.isEmpty()) {
+                ans.add(i - stack.peek());
+            } else {
+                ans.add(1 + i);
             }
+            stack.push(i);
         }
+
         return ans;
     }
 }
