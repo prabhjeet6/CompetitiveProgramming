@@ -16,28 +16,12 @@ class DesignCircularQueue {
         Arrays.fill(queue, -1);
     }
 
-
-    public static void main(String[] a) {
-
-        //["MyCircularQueue","Rear","enQueue","enQueue","enQueue","Rear","isFull","deQueue","enQueue"]
-        //[[3],[],[2],[3],[4],[],[],[],[4]]
-
-        DesignCircularQueue q = new DesignCircularQueue(3);
-        System.out.print(q.Rear() + " ");
-        System.out.print(q.enQueue(2) + " ");
-        System.out.print(q.enQueue(3) + " ");
-        System.out.print(q.enQueue(4) + " ");
-        System.out.print(q.Rear() + " ");
-        System.out.print(q.isFull() + " ");
-        System.out.print(q.deQueue() + " ");
-        System.out.print(q.enQueue(0) + " ");
-
-    }
-
     public boolean enQueue(int value) {
         if (counter >= queue.length) {
+            // setting rear and front values here should not be done, as a call to Rear() will throw ArrayIndexOutOfBounds
             return false;
         } else {
+            //Enqueue and Dequeue work in similar circular logic
             counter++;
             if (front == -1 && rear == -1) {
                 front = 0;
@@ -56,10 +40,12 @@ class DesignCircularQueue {
 
     public boolean deQueue() {
         if (counter == 0) {
+            // setting rear and front values here should not be done, as a call to Front() will throw ArrayIndexOutOfBounds
             return false;
         } else {
+            //Enqueue and Dequeue work in similar circular logic
             counter--;
-            queue[front] = -1;
+            queue[front] = -1;//Important, reset value at dequeued index to -1
             if (front < queue.length - 1) {
                 front++;
             } else {
@@ -70,15 +56,18 @@ class DesignCircularQueue {
     }
 
     public int Front() {
+        // If front index is invalid, return -1
         if (front < 0) return -1;
         return queue[front];
     }
 
     public int Rear() {
+        // If front index is invalid, return -1
         if (rear < 0) return -1;
         return queue[rear];
     }
 
+    // Only depend upon counter to check for isEmpty() or isFull()
     public boolean isEmpty() {
         return counter == 0;
     }
@@ -87,14 +76,3 @@ class DesignCircularQueue {
         return counter == queue.length - 1;
     }
 }
-
-/**
- * Your MyCircularQueue object will be instantiated and called as such:
- * MyCircularQueue obj = new MyCircularQueue(k);
- * boolean param_1 = obj.enQueue(value);
- * boolean param_2 = obj.deQueue();
- * int param_3 = obj.Front();
- * int param_4 = obj.Rear();
- * boolean param_5 = obj.isEmpty();
- * boolean param_6 = obj.isFull();
- */
