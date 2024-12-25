@@ -1,57 +1,44 @@
 package leetcode.stacks;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
+//https://leetcode.com/problems/flatten-nested-list-iterator/
 public class NestedIterator implements Iterator<Integer> {
+    private final List<NestedInteger> nestedList;
 
-    private int currentIndex;
-    private int currentSubIndex;
-    private List<NestedInteger> nestedList;
+    private final Iterator<Integer> iterator;
+
 
     public NestedIterator(List<NestedInteger> nestedList) {
         this.nestedList = nestedList;
-        this.currentIndex = 0;
-        this.currentSubIndex = 0;
+        List<Integer> flattendList = new ArrayList<>();
+        processList(flattendList, nestedList);
+        this.iterator = flattendList.iterator();
+    }
+
+    private void processList(List<Integer> flattendList, List<NestedInteger> nestedIntegerList) {
+        for (int i = 0; i < nestedIntegerList.size(); i++) {
+            NestedInteger nestedInteger = nestedIntegerList.get(i);
+            if (nestedInteger.isInteger()) {
+                flattendList.add(nestedInteger.getInteger());
+            } else {
+                processList(flattendList, nestedInteger.getList());
+            }
+        }
     }
 
     @Override
     public Integer next() {
-        NestedInteger current = nestedList.get(currentIndex);
-        if (current.getList().isEmpty()) {
-            currentIndex++;
-            return current.getInteger();
-        } else {
-            currentSubIndex++;
-            if(current.getList().size()>currentSubIndex){
-                return current.getList().get(currentSubIndex).getInteger();
-            }
-        }
-        return null;
+        return this.iterator.next();
     }
-
 
     @Override
     public boolean hasNext() {
-        if (nestedList.isEmpty()) {
-            return false;
-        } else {
-            NestedInteger current=nestedList.get(currentIndex);
-            if (current.isInteger()) {
-                return true;
-            } else if (!current.getList().isEmpty() ) {
-                if(currentSubIndex<current.getList().size()){
-                    return true;
-                }
-                else{
-                    currentSubIndex=0;
-                    return false;
-                }
-            }
-        }
-        return false;
+        return this.iterator.hasNext();
     }
+
 }
 
 /**

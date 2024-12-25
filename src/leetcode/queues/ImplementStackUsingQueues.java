@@ -1,14 +1,11 @@
-package leetcode;
+package leetcode.queues;
 
 
-import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.SynchronousQueue;
 
 public class ImplementStackUsingQueues {
-    public static void main(String args[]){
+    public static void main(String[] args){
        ImplementStackUsingQueues stack= new ImplementStackUsingQueues();
        stack.push(1);
        stack.push(2);
