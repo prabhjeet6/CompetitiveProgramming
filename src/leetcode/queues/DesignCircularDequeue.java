@@ -10,19 +10,18 @@ class DesignCircularDequeue {
         counter = 0;
         deque = new int[k];
         front = 0;
-        rear = -1;
+        rear = k - 1;//rear should start from last index of dequeue
     }
 
     public boolean insertFront(int value) {
         if (isFull()) {
             return false;
         } else {
-            for (int i = deque.length - 1; i > 0; i--) {
-                deque[i] = deque[i - 1];
-            }
-            deque[0] = value;
+            //Adjust front to insert at front of the deque
+            front = (front - 1 + deque.length) % deque.length;
+            deque[front] = value;
             counter++;
-            rear++;
+
             return true;
         }
     }
@@ -53,8 +52,7 @@ class DesignCircularDequeue {
         if (isEmpty()) {
             return false;
         } else {
-            if (rear == 0) rear = deque.length - 1;
-            else rear = (rear - 1) % deque.length;
+            rear = (rear - 1 + deque.length) % deque.length;
             counter--;
             return true;
         }
