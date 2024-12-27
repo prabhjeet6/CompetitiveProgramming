@@ -52,6 +52,7 @@ class DesignCircularDequeue {
         if (isEmpty()) {
             return false;
         } else {
+            //Adjust rear to delete at rear of the deque
             rear = (rear - 1 + deque.length) % deque.length;
             counter--;
             return true;
