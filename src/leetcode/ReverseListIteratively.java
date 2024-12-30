@@ -10,6 +10,7 @@ public class ReverseListIteratively {
      //dry run to understand this: prev is a fictional node taken before head to invert pointers
      while(null!=current){
          ListNode temp=current.next;
+         //everytime a node breaks in an iteration, it is added back at last in next iteration using following
          current.next=prev;
          prev=current;
          current=temp;
