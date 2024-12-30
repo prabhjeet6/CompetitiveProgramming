@@ -9,6 +9,10 @@ class Node {
         data = key;
         next = null;
     }
+    Node(int key,Node next) {
+        data = key;
+        this.next = next;
+    }
 }
 
 class FindNByKthNodeInLinkedList {
