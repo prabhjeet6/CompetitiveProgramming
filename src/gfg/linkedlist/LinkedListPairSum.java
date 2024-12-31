@@ -5,11 +5,11 @@ import java.util.Set;
 
 public class LinkedListPairSum {
     public static void main(String[] a) {
-        Node five = new Node(5, null);
-        Node four = new Node(4, five);
-        Node three = new Node(3, four);
-        Node two = new Node(2, three);
-        Node one = new Node(1, two);
+        Node five = new Node(53, null);
+        Node four = new Node(42, five);
+        Node three = new Node(31, four);
+        Node two = new Node(12, three);
+        Node one = new Node(10, two);
         calculate(one, 2);
 
     }
