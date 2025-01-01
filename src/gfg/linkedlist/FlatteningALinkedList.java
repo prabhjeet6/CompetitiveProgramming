@@ -2,7 +2,7 @@ package gfg.linkedlist;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1
 public class FlatteningALinkedList {
     class Node {
         int data;
