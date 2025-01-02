@@ -1,12 +1,12 @@
 package gfg.sorting;
 
 public class InsertionSort {
-    static void insert(int arr[],int i)
+    static void insert(int[] arr, int i)
     {
         arr[i]=arr[i-1];
     }
     //Function to sort the array using insertion sort algorithm.
-    public void insertionSort(int arr[], int n)
+    public void insertionSort(int[] arr, int n)
     {
         for(int i=1;i<n;i++){
             int j=i;
