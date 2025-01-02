@@ -1,4 +1,6 @@
-package leetcode;
+package leetcode.linkedlist;
+
+import leetcode.ListNode;
 
 public class InsertionSortINLinkedList {
 
@@ -41,4 +43,5 @@ public class InsertionSortINLinkedList {
             }
         }
         return sortedHead;
-    }}
+    }
+}
