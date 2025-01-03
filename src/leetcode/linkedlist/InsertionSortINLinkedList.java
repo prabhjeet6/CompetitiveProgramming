@@ -44,4 +44,25 @@ public class InsertionSortINLinkedList {
         }
         return sortedHead;
     }
+
+    public ListNode insertionSortListOptimized(ListNode head) {
+        if (head == null) return null;
+        ListNode dummy = new ListNode(0);
+        ListNode current = head;
+        while (current != null) {
+            ListNode nextNode = current.next;
+            ListNode prev = dummy;
+            //keep moving till the array is sorted
+            //current represents the node of the sorted sublist and prev.next represents node moving
+            //ahead till current is larger compared to nodes in the input list
+            while (prev.next != null && prev.next.val < current.val) {
+                prev = prev.next;
+            }
+            //when current is smaller, it is in the correct index in place
+            current.next = prev.next;
+            prev.next = current;
+            current = nextNode;
+        }
+        return dummy.next;
+    }
 }
