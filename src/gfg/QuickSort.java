@@ -3,7 +3,7 @@ package gfg;
 class QuickSort
 {
     //Function to sort an array using quick sort algorithm.
-    static void quickSort(int arr[], int low, int high)
+    static void quickSort(int[] arr, int low, int high)
     {
         if(low>high){
             return;
@@ -12,7 +12,7 @@ class QuickSort
         quickSort(arr,low,p-1);
         quickSort(arr,p+1,high);
     }
-    static int partition(int arr[], int low, int high)
+    static int partition(int[] arr, int low, int high)
     {
         int pivot=low;
         int left=low+1;
